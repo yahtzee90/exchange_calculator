@@ -1,1 +1,1 @@
-https://github.com/yahtzee90/exchange_calculator.git
+https://yahtzee90.github.io/exchange_calculator/
