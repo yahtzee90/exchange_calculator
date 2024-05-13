@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exchange Calculator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="main">
+      <header class="header">
+        <h1 class="header__title">Exchange Calculator</h1>
+      </header>
+      <article class="article">
+        <form class="form">
+          <div class="form__input-wrapper">
+            <label class="form__label" for="inputValue">Exchange: </label>
+
+            <input class="form__value" id="inputValue" type="number" min="0" />
+
+            <select
+              class="form__select"
+              name="inputCurrency"
+              id="inputCurrency"
+            >
+              <option>PLN</option>
+              <option>USD</option>
+              <option>EUR</option>
+              <option>GPB</option>
+            </select>
+          </div>
+
+          <div class="form__input-wrapper">
+            <label class="form__label" for="outputValue">For: </label>
+
+            <input class="form__value" id="outputValue" type="number" min="0" />
+
+            <select
+              class="form__select"
+              name="outputCurrency"
+              id="outputCurrency"
+            >
+              <option>PLN</option>
+              <option selected>USD</option>
+              <option>EUR</option>
+              <option>GPB</option>
+            </select>
+          </div>
+
+          <input class="form__reset" id="reset" type="reset" value="reset" />
+        </form>
+      </article>
+      <footer class="footer">
+        <p class="footer__text">
+          <span class="footer__copyright">&copy;</span> Jacek Gruchalski
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
