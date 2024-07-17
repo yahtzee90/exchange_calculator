@@ -1,8 +1,6 @@
 {
   const inputValue = document.querySelector("#inputValue");
-  const inputCurrency = document.querySelector("#inputCurrency");
   const outputValue = document.querySelector("#outputValue");
-  const outputCurrency = document.querySelector("#outputCurrency");
 
   const currencyRate = {
     PLN: {
@@ -36,9 +34,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       inputValue.value = (0).toFixed(2);
-      inputCurrency.value = "PLN";
       outputValue.value = (0).toFixed(2);
-      outputCurrency.value = "USD";
     });
   }
 
@@ -55,7 +51,10 @@
 
   {
     // calculate
-    
+
+    const inputCurrency = document.querySelector("#inputCurrency");
+    const outputCurrency = document.querySelector("#outputCurrency");
+
     inputValue.addEventListener("input", () => {
       outputValue.value = (
         inputValue.value *
@@ -68,6 +67,16 @@
         outputValue.value *
         currencyRate[outputCurrency.value][inputCurrency.value]
       ).toFixed(2);
+    });
+  }
+
+  {
+    // reset button
+
+    document.querySelector("#reset").addEventListener("click", () => {
+      outputValue.value = (0).toFixed(2);
+      inputValue.value = (0).toFixed(2);
+      inputValue.select();
     });
   }
 }
