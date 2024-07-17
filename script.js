@@ -4,21 +4,6 @@
   const outputValue = document.querySelector("#outputValue");
   const outputCurrency = document.querySelector("#outputCurrency");
 
-  inputValue.value = (0).toFixed(2);
-  inputCurrency.value = "PLN";
-  outputValue.value = (0).toFixed(2);
-  outputCurrency.value = "USD";
-
-  {
-    inputValue.addEventListener("click", function () {
-      this.select();
-    });
-    
-    outputValue.addEventListener("click", function () {
-      this.select();
-    });
-  }
-
   const currencyRate = {
     PLN: {
       PLN: 1.0,
@@ -46,16 +31,43 @@
     },
   };
 
-  inputValue.addEventListener("input", function () {
-    outputValue.value = (
-      inputValue.value * currencyRate[inputCurrency.value][outputCurrency.value]
-    ).toFixed(2);
-  });
+  {
+    // set initial values
 
-  outputValue.addEventListener("input", function () {
-    inputValue.value = (
-      outputValue.value *
-      currencyRate[outputCurrency.value][inputCurrency.value]
-    ).toFixed(2);
-  });
+    document.addEventListener("DOMContentLoaded", () => {
+      inputValue.value = (0).toFixed(2);
+      inputCurrency.value = "PLN";
+      outputValue.value = (0).toFixed(2);
+      outputCurrency.value = "USD";
+    });
+  }
+
+  {
+    // select values when field clicked
+
+    function clickSelect() {
+      this.select();
+    }
+
+    inputValue.addEventListener("click", clickSelect);
+    outputValue.addEventListener("click", clickSelect);
+  }
+
+  {
+    // calculate
+    
+    inputValue.addEventListener("input", () => {
+      outputValue.value = (
+        inputValue.value *
+        currencyRate[inputCurrency.value][outputCurrency.value]
+      ).toFixed(2);
+    });
+
+    outputValue.addEventListener("input", () => {
+      inputValue.value = (
+        outputValue.value *
+        currencyRate[outputCurrency.value][inputCurrency.value]
+      ).toFixed(2);
+    });
+  }
 }
